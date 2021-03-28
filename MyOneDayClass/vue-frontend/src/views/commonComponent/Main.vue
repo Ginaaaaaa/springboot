@@ -1,26 +1,402 @@
 <template>
-  <swiper class="swiper" :options="swiperOption">
-    <swiper-slide style="background-color:purple;"></swiper-slide>
-    <swiper-slide><img src="https://amymhaddad.s3.amazonaws.com/morocco-blue.png"></swiper-slide>    
-    <div class="swiper-pagination" slot="pagination"></div> 
-  </swiper>
+  <div>
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide style="background-color:purple;"></swiper-slide>
+      <swiper-slide style="background-color:orange;"></swiper-slide>
+      <swiper-slide style="background-color:green;"></swiper-slide>        
+      <div class="swiper-pagination" slot="pagination"></div> 
+    </swiper>
+    <div class="wrapperContainer">
+      <div class="wrapper" style="font-weight: 600; font-size: large;">최근 인기 많은 클래스 😍</div>
+    </div>
+    <div class="mainContainer">
+      <div class="main">
+        <swiper class="swiper" :options="swiperOption" style="height:350px;">
+          <swiper-slide>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>                                    
+          </swiper-slide>
+          <swiper-slide>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>                                    
+          </swiper-slide>                 
+        <div class="swiper-pagination" slot="pagination"></div> 
+        </swiper>      
+      </div>            
+    </div>
+    <div class="wrapperContainer">
+      <div class="wrapper" style="font-weight: 600; font-size: large;">신규 클래스 💎</div>
+    </div>
+    <div class="mainContainer">
+      <div class="main">
+        <swiper class="swiper" :options="swiperOption" style="height:350px;">
+          <swiper-slide>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>                                    
+          </swiper-slide>
+          <swiper-slide>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>                                    
+          </swiper-slide>                 
+        <div class="swiper-pagination" slot="pagination"></div> 
+        </swiper>      
+      </div>            
+    </div>
+    <div class="wrapperContainer">
+      <div class="wrapper" style="font-weight: 600; font-size: large;">지역별 클래스 모아보기 🚩</div>
+    </div> 
+    <div class="mainContainer">
+      <div class="main">
+        <swiper class="swiper" :options="swiperOption" style="height:350px;">
+          <swiper-slide>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>                                    
+          </swiper-slide>
+          <swiper-slide>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+            <md-card>
+              <md-card-header>
+                <div class="md-title">Card without hover effect</div>
+              </md-card-header>
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>                                    
+          </swiper-slide>                 
+        <div class="swiper-pagination" slot="pagination"></div> 
+        </swiper>      
+      </div>            
+    </div>           
+  </div>
+    
 </template>
 
+<style>
+.wrapperContainer{
+  display : flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1520px;
+  height: 60px;
+}
+.wrapper{
+  display : flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  height: 60px;
+}
+.mainContainer{
+  display : flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1520px;
+  height: 350px;
+  margin-bottom: 20px;
+}
+.main{
+  display : flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  height: 350px;
+}
+:root {
+  --swiper-theme-color: gray;
+}
+</style>
 <style lang="scss" scoped>
 .swiper { 
-  height: 300px; 
+  height: 400px; 
   width: 100%;
   }
 .swiper-slide { 
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center; 
   text-align: center; 
   font-weight: bold; 
   } 
-:root {
-  color: gray;
-}
+  .md-card {
+    width: 250px;
+    height: 330px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+  }
 </style>
 
 <script>

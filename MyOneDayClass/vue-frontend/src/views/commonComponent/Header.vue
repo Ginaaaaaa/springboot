@@ -3,7 +3,7 @@
   <div class="gnb">
     <div class="wrapper">
       <div style="font-weight: 600; font-size: x-large;">MyOnedayClass</div> 
-      <div style="margin-left:800px;"><md-button class="md-raised md-primary">강사 로그인</md-button></div>
+      <div style="margin-left:800px;"><md-button class="md-primary">강사 로그인</md-button></div>
       <div><md-button class="md-raised md-primary">회원가입</md-button></div>
     </div>                               
   </div>
@@ -40,7 +40,7 @@
 <style lang="scss" scoped>
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
 @include md-register-theme("default", (
-  primary:  #b302ca5e, // The primary color of your brand
+  primary:  #b302cab0, // The primary color of your brand
   accent: #32e066  // The secondary color of your brand
 ));   // default css impor
 @import "~vue-material/dist/theme/all";
