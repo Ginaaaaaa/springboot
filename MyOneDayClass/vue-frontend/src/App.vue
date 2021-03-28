@@ -3,6 +3,7 @@
     <header>
       <Header></Header>
     </header>
+    <Main></Main>
   </div>
 </template>
 
@@ -15,12 +16,14 @@ import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import Header from './views/commonComponent/Header.vue'
+import Main from './views/commonComponent/Main.vue'
 
 Vue.use(VueMaterial)
 
 export default {
   components : {
-    'Header' : Header
+    Header,
+    Main
   },
   data: function(){
     return{
