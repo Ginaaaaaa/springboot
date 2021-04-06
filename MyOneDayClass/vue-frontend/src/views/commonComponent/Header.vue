@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="gnb">
-    <div class="wrapper">
+    <div class="headerWrapper">
       <div style="font-weight: 600; font-size: x-large;">MyOnedayClass</div> 
       <div style="margin-left:800px;"><md-button class="md-primary">강사 로그인</md-button></div>
       <div><md-button class="md-raised md-primary">회원가입</md-button></div>
@@ -27,7 +27,7 @@
   width: 1520px;
   height: 60px;
 }
-.wrapper{
+.headerWrapper{
   display : flex;
   flex-direction: row;
   justify-content: space-between;

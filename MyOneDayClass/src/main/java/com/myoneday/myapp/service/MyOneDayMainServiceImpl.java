@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myoneday.myapp.entity.ClassVO;
 import com.myoneday.myapp.entity.UserInfoVO;
 import com.myoneday.myapp.mapper.MyOneDayMain;
 
@@ -21,6 +22,13 @@ public class MyOneDayMainServiceImpl implements MyOneDayMainService{
 		List<UserInfoVO> result = new ArrayList<UserInfoVO>();
 		result = mapper.getUserInfo();
 		
+		return result;
+	}
+
+	@Override
+	public List<ClassVO> getRecentClassInfo() {
+		List<ClassVO> result = new ArrayList<ClassVO>();
+		result = mapper.getRecentClassInfo();
 		return result;
 	}
 

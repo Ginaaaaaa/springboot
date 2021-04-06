@@ -7,4 +7,19 @@
 			USER_NO as userNo
 		FROM TB_USER
 	</select>
+	
+	<!-- 클래스 요약정보 목록 가져오기 -->
+	<select id="getRecentClassInfo" resultType="com.myoneday.myapp.entity.ClassVO">
+		SELECT T1.CLASS_NAME as className
+		      ,T1.CLASS_DESCRIBE as classDescribe
+		      ,(SELECT COUNT(*)
+		        FROM TB_LIKE
+		        WHERE CLASS_NO = T1.CLASS_NO
+		      ) classLike
+		      ,T2.CATEGORY_NAME as categoryName
+		FROM TB_CLASS T1
+		LEFT OUTER JOIN TB_CATEGORY T2 
+		ON T1.CATEGORY_NO = T2.CATEGORY_NO
+		ORDER BY classLike DESC
+	</select> 	
 </mapper>
