@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <Header></Header>
+      <Header @openLoginPopup="openLoginPopup"></Header>
     </header>
     <body>
       <Main></Main>
@@ -9,6 +9,7 @@
     <footer>
       <Footer></Footer>
     </footer>
+    <loginPopup v-show="isShow" @closeLoginPopup="closeLoginPopup"></loginPopup>
   </div>
 </template>
 
@@ -23,18 +24,21 @@ import 'vue-material/dist/vue-material.min.css'
 import Header from './views/commonComponent/Header.vue'
 import Main from './views/commonComponent/Main.vue'
 import Footer from './views/commonComponent/Footer.vue'
+import loginPopup from './views/user/userLoginPopup.vue'
 
-Vue.use(VueMaterial)
+(VueMaterial)
 
 export default {
   components : {
     Header,
     Main,
-    Footer
+    Footer,
+    loginPopup
   },
   data: function(){
     return{
-      param : "param start"
+      param : "param start",
+      isShow: false
     }
   },    
   methods:  {
@@ -59,8 +63,14 @@ export default {
         .catch(e => {
           console.log('error:', e)
         })
-    }
+    },
+    openLoginPopup: function(){
+      this.isShow = true;
+    },
+    closeLoginPopup: function(){      
+      this.isShow = false;
     }
   }
+}
 </script>
 

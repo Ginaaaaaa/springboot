@@ -1,21 +1,21 @@
 <template>
-<div>
-  <div class="gnb">
-    <div class="headerWrapper">
-      <div style="font-weight: 600; font-size: x-large;">MyOnedayClass</div> 
-      <div style="margin-left:800px;"><md-button class="md-primary">강사 로그인</md-button></div>
-      <div><md-button class="md-raised md-primary">회원가입</md-button></div>
-    </div>                               
-  </div>
-  <md-toolbar md-transparent>
-    <md-button style="width:130px;">자수/손뜨개</md-button>
-    <md-button style="width:130px;">요리/베이킹</md-button>
-    <md-button>공예</md-button>
-    <md-button>운동</md-button>
-    <md-button style="width:130px;">캘리/드로잉</md-button>
-    <md-button style="width:130px;">비누/캔들</md-button>                 
-  </md-toolbar>
-</div>    
+  <div>
+    <div class="gnb">
+      <div class="headerWrapper">
+        <div style="font-weight: 600; font-size: x-large;">MyOnedayClass</div> 
+        <div style="margin-left:800px;"><md-button class="md-primary" @click="onClickLogin">로그인</md-button></div>
+        <div><md-button class="md-raised md-primary">회원가입</md-button></div>
+      </div>                               
+    </div>
+    <md-toolbar md-transparent>
+      <md-button style="width:130px;">자수/손뜨개</md-button>
+      <md-button style="width:130px;">요리/베이킹</md-button>
+      <md-button>공예</md-button>
+      <md-button>운동</md-button>
+      <md-button style="width:130px;">캘리/드로잉</md-button>
+      <md-button style="width:130px;">비누/캔들</md-button>                 
+    </md-toolbar>
+  </div> 
 </template>
 
 <style>
@@ -69,10 +69,13 @@ export default {
     }
   },    
   methods:  {
-  btnClick(){
-    alert('12');
-  }
+    btnClick(){
+      alert('12');
+    },
+    onClickLogin: function(){
+      this.$emit('openLoginPopup');
     }
   }
+}
 </script>
 
