@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,15 +19,27 @@ public class MyOneDayClassController {
 	
 	@Autowired
 	MyOneDayMainService mainService;
-	
+
 	@GetMapping("/myoneday/main")
-	public Map<String, Object> demoapistring() {
-		Map<String, Object> map = new HashMap<>();
+	public ResponseEntity<Map<String, List<ClassVO>>> demoapistring() {
+		Map<String, List<ClassVO>> map = new HashMap<>();
 		List<ClassVO> recentClassInfoList = mainService.getRecentClassInfo();
-		
 		map.put("recentClassInfoList", recentClassInfoList);
-		return map;
-	}
+//		   HttpHeaders responseHeaders = new HttpHeaders();
+//		   responseHeaders.set("recentClassInfoList", "MyValue");
+		   return ResponseEntity.ok(map);
+	}	
+	
+//	@GetMapping("/myoneday/main")
+//	public Map<String, Object> demoapistring() {
+//		Map<String, Object> map = new HashMap<>();
+//		List<ClassVO> recentClassInfoList = mainService.getRecentClassInfo();
+//		
+//		map.put("recentClassInfoList", recentClassInfoList);
+//		return map;
+//	}
+
+
 	
 //	@GetMapping("/demoapi")
 //	public Map<String, Object> demoapi() {
