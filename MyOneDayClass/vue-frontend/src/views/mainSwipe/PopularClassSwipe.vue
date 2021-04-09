@@ -7,7 +7,7 @@
       <div class="main">
         <swiper class="swiper" :options="swiperOption" style="height:350px;">
           <swiper-slide>
-            <md-card v-for="item in cardsList1" :key="item">
+            <md-card v-for="(item,idx) in cardsList1" :key="idx">
               <md-card-media>
                 <img src="@/assets/knitting.jpg">
               </md-card-media>
@@ -22,7 +22,7 @@
             </md-card>                           
           </swiper-slide>
           <swiper-slide>
-            <md-card v-for="item in cardsList2" :key="item">
+            <md-card v-for="(item,idx) in cardsList2" :key="idx">
               <md-card-media>
                 <img src="@/assets/knitting.jpg">
               </md-card-media>
@@ -37,7 +37,7 @@
             </md-card>                           
           </swiper-slide> 
           <swiper-slide>
-            <md-card v-for="item in cardsList3" :key="item">
+            <md-card v-for="(item,idx) in cardsList3" :key="idx">
               <md-card-media>
                 <img src="@/assets/knitting.jpg">
               </md-card-media>
@@ -151,11 +151,12 @@ export default {
                 } 
             },
     mounted(){
-      this.$axios.get("http://localhost:8080/myoneday/main").then((data) => {
-          let list = data.data.recentClassInfoList;
-          this.cardsList1 = list.slice(0,4);
-          this.cardsList2 = list.slice(4,8);
-          this.cardsList3 = list.slice(8,12);                  
+      this.$axios.get("http://localhost:8080/myoneday/main").then(({data}) => {
+        let recentClassList = data.recentClassInfoList;
+
+        this.cardsList1 = recentClassList.slice(0,4);
+        this.cardsList2 = recentClassList.slice(4,8);
+        this.cardsList3 = recentClassList.slice(8,12);                  
 
         })
         .catch(e => {

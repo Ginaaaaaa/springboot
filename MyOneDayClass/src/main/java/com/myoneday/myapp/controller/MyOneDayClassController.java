@@ -25,9 +25,8 @@ public class MyOneDayClassController {
 		Map<String, List<ClassVO>> map = new HashMap<>();
 		List<ClassVO> recentClassInfoList = mainService.getRecentClassInfo();
 		map.put("recentClassInfoList", recentClassInfoList);
-//		   HttpHeaders responseHeaders = new HttpHeaders();
-//		   responseHeaders.set("recentClassInfoList", "MyValue");
-		   return ResponseEntity.ok(map);
+
+		return ResponseEntity.ok(map);
 	}	
 	
 //	@GetMapping("/myoneday/main")
