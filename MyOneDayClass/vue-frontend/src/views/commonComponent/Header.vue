@@ -4,7 +4,7 @@
       <div class="headerWrapper">
         <div style="font-weight: 600; font-size: x-large;">MyOnedayClass</div> 
         <div style="margin-left:800px;"><md-button class="md-primary" @click="onClickLogin">로그인</md-button></div>
-        <div><md-button class="md-raised md-primary">회원가입</md-button></div>
+        <div><md-button class="md-raised md-primary" @click="onClickRegist">회원가입</md-button></div>
       </div>                               
     </div>
     <md-toolbar md-transparent>
@@ -74,6 +74,9 @@ export default {
     },
     onClickLogin: function(){
       this.$emit('openLoginPopup');
+    },
+    onClickRegist: function(){
+      this.$router.push({name: 'UserRegist'});
     }
   }
 }
