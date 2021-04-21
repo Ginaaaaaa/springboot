@@ -11,5 +11,6 @@ import com.myoneday.myapp.entity.UserInfoVO;
 public interface MyOneDayMain {
 
 	List<UserInfoVO> getUserInfo();
-	List<ClassVO> getRecentClassInfo();	
+	List<ClassVO> getPopularClassInfo();
+	List<ClassVO> getRecentClassInfo();
 }

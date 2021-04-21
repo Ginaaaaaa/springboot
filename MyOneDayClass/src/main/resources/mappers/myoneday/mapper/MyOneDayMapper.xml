@@ -4,12 +4,12 @@
 <mapper namespace="com.myoneday.myapp.mapper.MyOneDayMain">
 	<select id="getUserInfo" resultType="com.myoneday.myapp.entity.UserInfoVO">
 		SELECT  
-			USER_NO as userNo
+			USER_NO
 		FROM TB_USER
 	</select>
 	
-	<!-- 클래스 요약정보 목록 가져오기 -->
-	<select id="getRecentClassInfo" resultType="com.myoneday.myapp.entity.ClassVO">
+	<!-- 최근 인기 많은 클래스 정보 목록 가져오기 -->
+	<select id="getPopularClassInfo" resultType="com.myoneday.myapp.entity.ClassVO">
 		SELECT T1.CLASS_NAME
 		      ,T1.CLASS_DESCRIBE
 		      ,(SELECT COUNT(*)
@@ -21,5 +21,23 @@
 		LEFT OUTER JOIN TB_CATEGORY T2 
 		ON T1.CATEGORY_NO = T2.CATEGORY_NO
 		ORDER BY CLASS_LIKE DESC
-	</select> 	
+	</select>
+
+	<!-- 신규 클래스 정보 목록 가져오기 -->
+	<select id="getRecentClassInfo" resultType="com.myoneday.myapp.entity.ClassVO">
+		SELECT ROWNUM,
+		       A.*
+		FROM (
+		      SELECT CLASS_NO
+		            ,TEACHER_NO
+		            ,CLASS_NAME
+		            ,CATEGORY_NO
+		            ,TO_CHAR(CLASS_REG_DATE, 'YYYY-MM-DD HH24:MM:SS') CLASS_REG_DATE
+		            ,CLASS_UPDATE_DATE
+		            ,CLASS_MEMBER_MAX
+		            ,CLASS_DESCRIBE
+		      FROM TB_CLASS
+		      ORDER BY CLASS_REG_DATE DESC) A
+		ORDER BY ROWNUM
+	</select> 	 	
 </mapper>

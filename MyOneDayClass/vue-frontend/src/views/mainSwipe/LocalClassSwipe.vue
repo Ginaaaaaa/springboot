@@ -7,105 +7,50 @@
       <div class="main">
         <swiper class="swiper" :options="swiperOption" style="height:350px;">
           <swiper-slide>
-            <md-card>
+            <md-card v-for="(item,idx) in cardsList1" :key="idx">
+              <md-card-media>
+                <img src="@/assets/knitting.jpg">
+              </md-card-media>
               <md-card-header>
-                <div class="md-title">Card without hover effect</div>
+                <div>❤ {{item.classLike}}</div>
+                <div style="font-size: medium">{{item.className}}</div>
+                <div class="md-subhead">{{item.categoryName}}</div>
               </md-card-header>
               <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+                <div style="font-size: small">{{item.classDescribe}}</div>
               </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card>
-              <md-card-header>
-                <div class="md-title">Card without hover effect</div>
-              </md-card-header>
-              <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
-              </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card>
-              <md-card-header>
-                <div class="md-title">Card without hover effect</div>
-              </md-card-header>
-              <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
-              </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card>
-              <md-card-header>
-                <div class="md-title">Card without hover effect</div>
-              </md-card-header>
-              <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
-              </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>                                    
+            </md-card>                           
           </swiper-slide>
           <swiper-slide>
-            <md-card>
+            <md-card v-for="(item,idx) in cardsList2" :key="idx">
+              <md-card-media>
+                <img src="@/assets/knitting.jpg">
+              </md-card-media>
               <md-card-header>
-                <div class="md-title">Card without hover effect</div>
+                <div>❤ {{item.classLike}}</div>
+                <div style="font-size: medium">{{item.className}}</div>
+                <div class="md-subhead">{{item.categoryName}}</div>
               </md-card-header>
               <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+                <div style="font-size: small">{{item.classDescribe}}</div>
               </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card>
+            </md-card>                           
+          </swiper-slide> 
+          <swiper-slide>
+            <md-card v-for="(item,idx) in cardsList3" :key="idx">
+              <md-card-media>
+                <img src="@/assets/knitting.jpg">
+              </md-card-media>
               <md-card-header>
-                <div class="md-title">Card without hover effect</div>
+                <div>❤ {{item.classLike}}</div>
+                <div style="font-size: medium">{{item.className}}</div>
+                <div class="md-subhead">{{item.categoryName}}</div>
               </md-card-header>
               <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+                <div style="font-size: small">{{item.classDescribe}}</div>
               </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card>
-              <md-card-header>
-                <div class="md-title">Card without hover effect</div>
-              </md-card-header>
-              <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
-              </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card>
-              <md-card-header>
-                <div class="md-title">Card without hover effect</div>
-              </md-card-header>
-              <md-card-content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
-              </md-card-content>
-              <md-card-actions>
-                <md-button>Action</md-button>
-                <md-button>Action</md-button>
-              </md-card-actions>
-            </md-card>                                    
-          </swiper-slide>                 
+            </md-card>                           
+          </swiper-slide>                                      
         <div class="swiper-pagination" slot="pagination"></div> 
         </swiper>      
       </div>            
@@ -160,7 +105,7 @@
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  text-align: center; 
+  text-align: left; 
   font-weight: bold; 
   } 
   .md-card {
@@ -186,20 +131,40 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 export default {
-  components: { 
-    Swiper, 
-    SwiperSlide
+    components: { 
+        Swiper, 
+        SwiperSlide
+        },
+    data() { 
+          return { 
+            swiperOption: { 
+                slidesPerView: 1, 
+                spaceBetween: 30, 
+                loop: true, 
+                pagination: { 
+                    el: '.swiper-pagination', 
+                    clickable: true }, 
+                 }, 
+            cardsList1: [],
+            cardsList2: [], 
+            cardsList3: [],                        
+                } 
+            },
+    mounted(){
+      this.$axios.get("http://localhost:8080/myoneday/main").then(({data}) => {
+        let recentClassList = data.recentClassInfoList;
+
+        this.cardsList1 = recentClassList.slice(0,4);
+        this.cardsList2 = recentClassList.slice(4,8);
+        this.cardsList3 = recentClassList.slice(8,12);                  
+
+        })
+        .catch(e => {
+          console.log('error:', e)
+        })
     },
-  data() { return { 
-    swiperOption: { 
-      slidesPerView: 1, 
-      spaceBetween: 30, 
-      loop: true, 
-      pagination: { 
-        el: '.swiper-pagination', 
-        clickable: true }, 
-             } 
-            } 
+    methods:{
+      
         }
-}
+    }
 </script>

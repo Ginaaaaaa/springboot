@@ -26,6 +26,13 @@ public class MyOneDayMainServiceImpl implements MyOneDayMainService{
 	}
 
 	@Override
+	public List<ClassVO> getPopularClassInfo() {
+		List<ClassVO> result = new ArrayList<ClassVO>();
+		result = mapper.getPopularClassInfo();
+		return result;
+	}
+
+	@Override
 	public List<ClassVO> getRecentClassInfo() {
 		List<ClassVO> result = new ArrayList<ClassVO>();
 		result = mapper.getRecentClassInfo();

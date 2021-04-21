@@ -23,8 +23,11 @@ public class MyOneDayClassController {
 	@GetMapping("/myoneday/main")
 	public ResponseEntity<Map<String, List<ClassVO>>> demoapistring() {
 		Map<String, List<ClassVO>> map = new HashMap<>();
+		List<ClassVO> popularClassInfoList = mainService.getPopularClassInfo();
 		List<ClassVO> recentClassInfoList = mainService.getRecentClassInfo();
-		map.put("recentClassInfoList", recentClassInfoList);
+		
+		map.put("popularClassInfoList", popularClassInfoList);
+		map.put("recentClassInfoList", recentClassInfoList);		
 
 		return ResponseEntity.ok(map);
 	}	

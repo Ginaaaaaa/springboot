@@ -152,11 +152,11 @@ export default {
             },
     mounted(){
       this.$axios.get("http://localhost:8080/myoneday/main").then(({data}) => {
-        let recentClassList = data.recentClassInfoList;
+        let popularClassInfoList = data.popularClassInfoList;
 
-        this.cardsList1 = recentClassList.slice(0,4);
-        this.cardsList2 = recentClassList.slice(4,8);
-        this.cardsList3 = recentClassList.slice(8,12);                  
+        this.cardsList1 = popularClassInfoList.slice(0,4);
+        this.cardsList2 = popularClassInfoList.slice(4,8);
+        this.cardsList3 = popularClassInfoList.slice(8,12);                  
 
         })
         .catch(e => {
