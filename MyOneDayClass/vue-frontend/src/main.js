@@ -10,10 +10,13 @@ import 'vue-material/dist/theme/default.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
+axios.defaults.baseURL = "http://localhost:8080"
+
 Vue.use(VueRouter);
 Vue.use(VueMaterial);
 
 new Vue({
+  el: "#app",
   router,
   render: h => h(App)
-}).$mount('#app')
+})
