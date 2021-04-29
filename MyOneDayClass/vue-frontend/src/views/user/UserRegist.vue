@@ -18,35 +18,35 @@
                         <div class="md-layout-item md-small-size-100">
                             <md-field>
                                 <label>ID</label>
-                                <md-input v-model="user.id"></md-input>
+                                <md-input v-model="user.userId"></md-input>
                                 <span class="md-error" v-if="isRequired">The first name is required</span>
                             </md-field>
                         </div>
                         <div class="md-layout-item md-small-size-100">
                             <md-field>
                                 <label>PassWord</label>
-                                <md-input v-model="user.pw"></md-input>
+                                <md-input v-model="user.userPw"></md-input>
                                 <span class="md-error">The first name is required</span>
                             </md-field>
                         </div>
                         <div class="md-layout-item md-small-size-100">
                             <md-field>
                                 <label>Name</label>
-                                <md-input v-model="user.name"></md-input>
+                                <md-input v-model="user.userName"></md-input>
                                 <span class="md-error">The first name is required</span>
                             </md-field>
                         </div>
                         <div class="md-layout-item md-small-size-100">
                             <md-field>
                                 <label>Phone</label>
-                                <md-input v-model="user.phone"></md-input>
+                                <md-input v-model="user.userPhone"></md-input>
                                 <span class="md-error">The first name is required</span>
                             </md-field>
                         </div>
                         <div class="md-layout-item md-small-size-100">
                             <md-field>
                                 <label>Email</label>
-                                <md-input v-model="user.email"></md-input>
+                                <md-input v-model="user.userEmail"></md-input>
                                 <span class="md-error">The first name is required</span>
                             </md-field>
                         </div>
@@ -67,22 +67,35 @@ export default{
     data() {
         return {
             user:{
-                id: '',
-                pw: '',
-                name: '',
-                phone: '',
-                email: ''
+                userId: '',
+                userPw: '',
+                userName: '',
+                userPhone: '',
+                userEmail: ''
             },
             isRequired: false
         }
     },    
     methods:  {
         onClickSave: function(){
-            if(this.user.id==""){
+            if(this.user.userId=="" || this.user.userPw=="" || this.user.userName==""
+              || this.user.userPhone=="" || this.user.userEmail==""){
                 this.isRequired = true;
-                console.log(this.isRequired);
                 return false;
             }
+
+            this.fn_save();
+        },
+        fn_save: function(){
+            let _param = this.user;
+
+            this.$axios.put("/user/regist", _param).then(({data})=>{
+                if(data){
+                    console.log("통신함");
+                }
+            }).catch(e=>{
+                console.log('error:', e)
+            });
         },
         onClickCancel: function(){
             this.$router.push({name:'Main'});
