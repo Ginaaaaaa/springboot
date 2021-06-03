@@ -19,6 +19,7 @@
                             <md-field>
                                 <label>ID</label>
                                 <md-input v-model="user.userId"></md-input>
+                                <md-button @click="onClickCheckId">중복검사</md-button>
                                 <span class="md-error" v-if="isRequired">The first name is required</span>
                             </md-field>
                         </div>
@@ -73,28 +74,90 @@ export default{
                 userPhone: '',
                 userEmail: ''
             },
+            isCheckId: false,
             isRequired: false
         }
     },    
     methods:  {
-        onClickSave: function(){
-            if(this.user.userId=="" || this.user.userPw=="" || this.user.userName==""
-              || this.user.userPhone=="" || this.user.userEmail==""){
-                this.isRequired = true;
+        onClickCheckId: function(){
+            if(this.user.userId==""){
+                alert("ID를 입력해주세요.");
                 return false;
             }
-
-            this.fn_save();
-        },
-        fn_save: function(){
-            let _param = this.user;
-
-            this.$axios.put("/user/regist", _param).then(({data})=>{
+            
+            // let _param = {'userId' : this.user.userId}; console.log("_param");console.log(_param);
+            this.$axios.get("/user/checkRegistId?userId="+this.user.userId
+            ).then(({data})=>{
                 if(data){
-                    console.log("통신함");
+                    alert("사용가능한 ID 입니다."); this.isCheckId=true;
+                }else{
+                    alert("이미 사용 중인 ID 입니다."); this.isCheckId=false;
+                    return false;
                 }
             }).catch(e=>{
-                console.log('error:', e)
+                console.log('error:', e);
+            });
+        },
+        checkRequired: function(){
+            this.isRequired = true;
+
+            if(this.user.userId==""){
+                alert("ID를 입력해주세요.");
+                this.isRequired = false; return false;
+            }
+            if(this.user.userPw==""){
+                alert("비밀번호를 입력해주세요.");
+                this.isRequired = false; return false;
+            }
+            if(this.user.userName==""){
+                alert("이름을 입력해주세요.");
+                this.isRequired = false; return false;
+            }
+            if(this.user.userPhone==""){
+                alert("전화번호를 입력해주세요.");
+                this.isRequired = false; return false;
+            }
+            if(this.user.userEmail==""){
+                alert("이메일을 입력해주세요.");
+                this.isRequired = false; return false;
+            }   
+        },
+        onClickSave: function(){
+            if(!this.isCheckId){
+                alert("ID의 중복 여부룰 확인해주세요."); return false;
+            }
+            this.checkRequired();
+
+            if(this.isRequired && this.isCheckId){
+                this.fn_save();              
+            }
+        },
+        fn_save: function(){
+            const FormData = require('form-data');
+            const form = new FormData();
+            form.append("userId", this.user.userId);
+            form.append("userPw", this.user.userPw);
+            form.append("userName", this.user.userName);
+            form.append("userPhone", this.user.userPhone);
+            form.append("userEmail", this.user.userEmail);
+
+            this.$axios.put("/user/regist", form, {
+                header: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            }).then(({data})=>{
+                if(data == "SUCCESS"){
+                    alert("회원가입이 완료되었습니다.\n메인 화면으로 이동합니다.");
+                    this.$router.push({name:'Main'});
+                    // let isLogin = confirm("회원가입이 완료되었습니다.\n로그인하시겠습니까?");
+                    // if(isLogin){
+                    //     this.$emit('openLoginPopup');
+                    // }else{
+                    //     this.$router.push({name:'Main'});
+                    // }
+                }
+            }).catch(e=>{
+                console.log('error:', e);
             });
         },
         onClickCancel: function(){

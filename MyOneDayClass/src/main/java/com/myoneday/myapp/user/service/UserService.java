@@ -4,6 +4,7 @@ import com.myoneday.myapp.user.entity.User;
 
 public interface UserService {
 	
-	void insertUserRegist(User user);
+	boolean checkRegistId(String userId);
+	String insertUserRegist(User user);
 
 }

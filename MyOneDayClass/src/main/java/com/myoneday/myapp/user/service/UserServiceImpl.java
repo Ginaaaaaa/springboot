@@ -11,10 +11,30 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Override
+	public boolean checkRegistId(String userId) {
+		boolean result = true;
+		
+		int isUserId = userMapper.checkRegistId(userId);
+		
+		if(isUserId > 0) {
+			result = false;
+		}
+		
+		return result;
+	}
 
 	@Override
-	public void insertUserRegist(User user) {
-		userMapper.insertUserRegist(user);
+	public String insertUserRegist(User user) {
+		String result = "";
+		try {
+			userMapper.insertUserRegist(user);
+			return result = "SUCCESS";
+		}catch(Exception e){
+			e.printStackTrace();
+			return result = "FALE";
+		}
 	}
 
 }

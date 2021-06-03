@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.myoneday.myapp.user.mapper.UserMapper">
+    
+    <select id="checkRegistId" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM TB_USER WHERE USER_ID = #{userId}
+    </select>
 
     <insert id="insertUserRegist" parameterType="com.myoneday.myapp.user.entity.User">
         INSERT INTO TB_USER (
@@ -17,7 +21,7 @@
             USER_LEVEL
         )
         VALUES(
-            SYSDATE,
+            (SELECT LPAD(NVL(MAX(user_no)+1, 1), 6, 0) AS USER_NO FROM TB_USER),
             #{userId},
             #{userPw},
             #{userName},
