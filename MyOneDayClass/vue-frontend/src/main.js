@@ -6,11 +6,9 @@ import VueRouter from 'vue-router';
 import VueMaterial from 'vue-material'
 
 import 'vue-material/dist/vue-material.min.css'
-// import 'vue-material/dist/theme/default.css'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
-axios.defaults.baseURL = "http://localhost:8080"
 
 Vue.use(VueRouter);
 Vue.use(VueMaterial);

@@ -73,7 +73,8 @@ export default {
       alert('12');
     },
     onClickLogin: function(){
-      this.$emit('openLoginPopup');
+      let isShowLoginPopup = true;
+      this.$emit('openLoginPopup', isShowLoginPopup);
     },
     onClickRegist: function(){
       this.$router.push({name: 'UserRegist'});

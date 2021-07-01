@@ -19,17 +19,17 @@ import com.myoneday.myapp.user.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8081")
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 	
 	@Autowired
 	private UserService userService;
     
 	/**
-	 * @Method 아이디 중복검사
+	 * @Method checkRegistId
 	 * @param String userId
 	 * @return boolean
-	 * @Data 2021.04.30
+	 * 아이디 중복 검증 메소드
 	 */
 	@GetMapping("/checkRegistId")
 	public ResponseEntity<?> checkRegistId(@Param(value="userId") String userId){
@@ -44,26 +44,31 @@ public class UserController {
 	}
 	
 	/**
-	 * @Method 회원 가입
+	 * @Method userRegist
 	 * @param User user
 	 * @return String
-	 * @Data 2021.05.27
+	 * 회원 가입(회원 저장) 메소드
 	 */
 	@PutMapping("/regist")
-	public ResponseEntity<?> userRegist(@ModelAttribute User user){
-		String result = "SUCCESS";
+	public ResponseEntity<?> userRegist(@RequestBody User user){
+		boolean result = true;
 		try {
 			result = userService.insertUserRegist(user);
 		}catch(Exception e) {
-			result = "FAIL";
+			result = false;
 			e.printStackTrace();
 		}
 		return ResponseEntity.ok(result);
 	}
 	
-	@PostMapping("/login")
-	public ResponseEntity<?> userLogin(@Param(value="userId") String userId,
-			                           @Param(value="userPw") String userPw){
+	/**
+	 * @Method userLogin
+	 * @param User user
+	 * @return String
+	 * 회원 로그인 검증 메소드
+	 */
+	@PutMapping("/login")
+	public ResponseEntity<?> userLogin(@RequestBody User user){
 		boolean result = true;
 		try {
 			

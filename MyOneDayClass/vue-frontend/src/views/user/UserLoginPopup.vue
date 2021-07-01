@@ -1,45 +1,96 @@
 <template>
-    <div class="modal">
-        <div class="overlay" @click="closeModal"></div> <!-- component와 같은 크기의 modal 배경. 즉, modal의 반투명 배경영역 -->
-        <div class="modal-card"> <!-- modal 영역 -->
-            <div class="div-input">
-                <md-field class="has-danger">
-                    <label>Your Id</label>
-                    <md-input />
-                </md-field>
-                <md-field class="has-danger" style>
-                    <label>Password</label>
-                    <md-input />
-                </md-field>
-            </div>
-            <div class="div-btn">
-                <md-button @click="enterLogin">sign-up</md-button>
-                <md-button @click="closeModal">close</md-button>
-            </div>
-        </div>
+    <div>
+        <md-dialog :md-active.sync="isShowLoginPopup"
+                   @md-clicked-outside="onClickClose">
+            <md-tabs>
+                <md-tab md-label="Login" md-disabled>
+                    <md-field>
+                        <label>ID</label>
+                        <md-input v-model="user.userId" />
+                        <span class="md-helper-text" v-if="!isRequired.userId">ID를 입력해주세요.</span>
+                    </md-field>
+                    <md-field>
+                        <label>PW</label>
+                        <md-input v-model="user.userPw" type="password"/>
+                        <span class="md-helper-text md-error" v-if="!isRequired.userPw">비밀번호를 입력해주세요.</span>
+                    </md-field>
+                </md-tab>
+            </md-tabs>
+            <md-dialog-actions>
+                <md-button @click="onClickClose">CLOSE</md-button>
+                <md-button class="md-primary" @click="onClickLogin">SIGN-IN</md-button>
+            </md-dialog-actions>
+        </md-dialog>
     </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.min.css'
-
-Vue.use(VueMaterial)
 
 export default {
+    props: {
+        propsParam: {type:Boolean, default:false}
+    },
+    watch: {
+        propsParam: function(val){
+            this.isShowLoginPopup = val;
+        }
+    },
     data (){
         return {
+            isShowLoginPopup: false,
+            user:{
+                userId: '',
+                userPw: ''
+            },
+            isRequired: {
+                userId: true,
+                userPw: true
+            }
         }
     },
     methods: {
-        closeModal: function(){
-            this.$emit('closeLoginPopup');
+        checkRequired: function(){
+            if(this.user.userId==""){
+                this.isRequired.userId = false; return false;
+            }else{
+                this.isRequired.userId = true;
+            }
+            if(this.user.userPw==""){
+                this.isRequired.userPw = false; return false;
+            }else{
+                this.isRequired.userPw = true;
+            }
         },
-        enterLogin: function(){
-            console.log("click login");
+        onClickLogin: function(){
+            this.checkRequired();
+
+            if(this.isRequired.userId && this.isRequired.userPw){
+                this.fn_login();              
+            }else{
+                return false;
+            }
+        },
+        fn_login: function(){ // formData? serializeobject? 로그인 기능할 차례
+            let params = {
+                userId : this.user.userId,
+                userPw : this.user.userPw
+            }
+            
+            this.$axios.put("/api/user/login", params).then(({data})=>{
+                if(data){
+                    console.log("로그인성공");
+                    this.isShowLoginPopup = false;
+                }
+                else{
+                    alert("ID 또는 비밀번호를 다시 확인해주세요");
+                }
+            });
+        },
+        onClickClose: function(){
+            this.isShowLoginPopup = false;
+            this.$emit('closeLoginPopup', this.isShowLoginPopup);
         }
-    },
+    }
 }
 </script>
 

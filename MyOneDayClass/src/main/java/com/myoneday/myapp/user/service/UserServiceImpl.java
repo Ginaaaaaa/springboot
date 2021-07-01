@@ -26,14 +26,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String insertUserRegist(User user) {
-		String result = "";
+	public boolean insertUserRegist(User user) {
+		boolean result = true;
 		try {
 			userMapper.insertUserRegist(user);
-			return result = "SUCCESS";
+			return result = true;
 		}catch(Exception e){
 			e.printStackTrace();
-			return result = "FALE";
+			return result = false;
 		}
 	}
 
